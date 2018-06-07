@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+body {
+  background: linear-gradient(0deg, silver, black);
+  margin: 0;
+  padding: 0px;
+  min-height: calc(100vh);
+  font-family: Arial;
+  letter-spacing: 0.1em;
+}
+h1 {
+  text-align: center;
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0.6),
+    rgba(255,255,255,0)
+  );
+  color: white;
+  font-weight: normal;
+  padding: 5px;
+  text-shadow: 1px 1px white;
+}
+h1::before {
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0.4),
+    rgba(255,255,255,1.0),
+    rgba(255,255,255,0.4)
+  );
+  content: "";
+  position: relative;
+  top: -5px;
+}
+img {
+  margin: 0 auto;
+  border: 3px solid #444;
+  display: block;
+}
+input {
+  width:250px;
+  position: relative;
+  top: 5px;
+}
+span.label {
+  display: inline-block;
+  width: 4em;
+}
+#controlbox {
+  text-align: center;
+  background: linear-gradient(to bottom, #888, silver, #888);
+  margin: auto;
+  display: block;
+  width: 400px;
+  border: 3px outset;
+  padding-bottom: 10px;
+}
+#rin_value, #bin_value, #gin_value {
+  color: lime;
+  background-color: black;
+  padding: 2px 0.5em;
+  border: 1px inset #aaa;
+  font-size: 80%;
+}
+</style>
+
+<title>&Eacute;clairage changeant</title>
+<h1 id="banner">&Eacute;clairage changeant</h1>
+
+<img id="image2">
+<div id = "controlbox">
+  <input type="range" id="rin" min="0" max="1" step="0.01">
+  <span class="label">rouge</span><span id="rin_value"></span><br>
+
+  <input type="range" id="gin" min="0" max="1" step="0.01">
+  <span class="label">vert</span><span id="gin_value"></span><br>
+
+  <input type="range" id="bin" min="0" max="1" step="0.01">
+  <span class="label">bleu</span><span id="bin_value"></span><br>
+</div>
+
+<script>
+  /*
+  ** Mise à jour de l'image et des contrôles sur réception d'une scène
+  */
+  var update_image = function() {
+    data = JSON.parse(this.responseText);
+    scene = JSON.parse(data.serial);
+
+    // mise à jour de l'image
+    image2.src = localhost + data.url + "?" + Math.random();
+
+    // mise à jour des valeurs affichées
+    rin_value.innerHTML = rin.value = scene.sources[0].color.r.toFixed(2);
+    gin_value.innerHTML = gin.value = scene.sources[0].color.g.toFixed(2);
+    bin_value.innerHTML = bin.value = scene.sources[0].color.b.toFixed(2);
+
+    // petite coquetterie : modification de la couleur du titre
+    banner.style.color = 'rgb('+rin.value*100+'%,'+gin.value*100+'%,'+bin.value*100+'%)';
+    banner.style.textShadow = '1px 1px rgb('+(1-rin.value)*100+'%,'+(1-gin.value)*100+'%,'+(1-bin.value*100)+'%)';
+  }
+
+  /*
+  ** Requête initiale de récupération de la scène
+  */
+  var localhost = "http://localhost:8080";
+  var r = new XMLHttpRequest();
+  r.onload = update_image;
+  r.open("GET",localhost + "/service/scene/1",true);
+  r.send();
+
+  /*
+  ** Gestionnaires d'événement pour modification d'une composante de couleur
+  */
+  rin.onchange = bin.onchange = gin.onchange = function() {
+
+    // récupération de la valeur des trois actionneurs
+    scene.sources[0].color.r = parseFloat(rin.value);
+    scene.sources[0].color.g = parseFloat(gin.value);
+    scene.sources[0].color.b = parseFloat(bin.value);
+
+    // requête de mise à jour de la scène
+    var body = JSON.stringify({operation: "update", serial:JSON.stringify(scene)});
+    var r = new XMLHttpRequest();
+    r.onload = update_image;
+    r.open("POST",localhost + "/service/scene/1",true);
+    r.send(body);
+  }
+</script>
