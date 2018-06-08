@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Editeur de scène</title>
+	<link href="css/freelancer.css" rel="stylesheet">
+	<link href="css/freelancer.min.css" rel="stylesheet">
+	<!--<link href="scripts/">-->
 </head>
 <body>
-	
-	<h1 id="banner">&Eacute;diteur de scène</h1>
+
+	<h1 id="banner">Editeur de scène</h1>
 
 
 	<img id="image2">
@@ -16,57 +19,57 @@
 
 	<div id = "controlbox">
 
-  	<input type="range" id="nbobj" min="1" max="8" step="1">
+ 		<input type="range" id="nbobj" min="1" max="8" step="1">
 
-  	<span class="label">numéro de l'objet</span><span id="nbobj_value">Sphère</span><br>
-
-
- 	 <input type="range" id="ajout" min="0" max="1" step="1">
-
-  	<span class="label">objet non visible/visible</span><span id="ajout_value"></span><br>
+		<span class="label">numéro de l'objet</span><span id="nbobj_value">Sphère</span><br>
 
 
-  	<input type="range" id="xin" min="-1" max="1" step="0.01">
+ 		<input type="range" id="ajout" min="0" max="1" step="1">
 
-	  <span class="label">position x</span><span id="xin_value"></span><br>
+		<span class="label">objet non visible/visible</span><span id="ajout_value"></span><br>
+
+
+		<input type="range" id="xin" min="-1" max="1" step="0.01">
+
+		<span class="label">position x</span><span id="xin_value"></span><br>
 
    
-  	<input type="range" id="yin" min="0" max="0.5" step="0.01">
+		<input type="range" id="yin" min="0" max="0.5" step="0.01">
 
-  	<span class="label">position y</span><span id="yin_value"></span><br>
-
-
-  	<input type="range" id="zin" min="-5" max="5" step="0.01">
-
-  	<span class="label">position z</span><span id="zin_value"></span><br>
+		<span class="label">position y</span><span id="yin_value"></span><br>
 
 
-  	<input type="range" id="heightS" min="0" max="1" step="0.01">
+		<input type="range" id="zin" min="-5" max="5" step="0.01">
 
-  	<span class="label">taille objet</span><span id="heightS_value"></span><br>
-
-	<select id="listederoulante">
-  	<option value='' selected>Type de l'objet</option> 
-  	<option value='Pyramid'>Pyramide</option> 
-  	<option value='Sphere'>Sphère</option>
-  	<option value='Arbre'>Arbre</option>
-	</select>
-
-  	<input type="range" id="ajoutobj" min="0" max="1" step="1">
-
-  	<span class="label">ajouter un objet</span><br>
-	<br />
-	<BR>
+		<span class="label">position z</span><span id="zin_value"></span><br>
 
 
-  	<input type="range" id="width" min="200" max="600" step="1">
+		<input type="range" id="heightS" min="0" max="1" step="0.01">
 
-  	<span class="label">largeur scene</span><span id="width_value"></span><br>
+		<span class="label">taille objet</span><span id="heightS_value"></span><br>
+
+		<select id="listederoulante">
+			<option value='' selected>Type de l'objet</option> 
+  			<option value='Pyramid'>Pyramide</option> 
+  			<option value='Sphere'>Sphère</option>
+  			<option value='Arbre'>Arbre</option>
+		</select>
+
+  		<input type="range" id="ajoutobj" min="0" max="1" step="1">
+
+  		<span class="label">ajouter un objet</span><br>
+		<br />
+		<BR>
 
 
-  	<input type="range" id="height" min="200" max="500" step="1">
+  		<input type="range" id="width" min="200" max="600" step="1">
 
-  	<span class="label">hauteur scene</span><span id="height_value"></span><br>
+  		<span class="label">largeur scene</span><span id="width_value"></span><br>
+
+
+  		<input type="range" id="height" min="200" max="500" step="1">
+
+  		<span class="label">hauteur scene</span><span id="height_value"></span><br>
 
 
   
