@@ -1,40 +1,50 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<title>Editeur de scène</title>
-	<link href="css/freelancer.css" rel="stylesheet">
-	<link href="css/freelancer.min.css" rel="stylesheet">
-	<!--<link href="scripts/">-->
+	<meta charset="UTF-8">
+	<title> Editeur de scène </title>
+	<link href="freelancer.css" rel="stylesheet" >  <!--type=”text/css”-->  	
 </head>
+
+
 <body>
 
-	<h1 id="banner">Editeur de scène</h1>
+	<h1>
+		<strong>Editeur de scène</strong><br>
+		blablabla
+	</h1>
+	
+	<p>
+      <strong>1</strong>cascading
+      <strong>2</strong>style
+      <strong>3</strong>sheets
+    </p>
 
-
-	<img id="image2">
-
-
-
-
-
+    <div id= "canvas">
+		<img src="pyramid.png">
+	</div>
+	
+	
 	<div id = "controlbox">
 
- 		<input type="range" id="nbobj" min="1" max="8" step="1">
+ 		<input type="range" id="nb_obj" min="1" max="8" step="1">
 
-		<span class="label">numéro de l'objet</span><span id="nbobj_value">Sphère</span><br>
+		<span class="label">numéro de l'objet</span> 
+		<span id="nbobj_value">Sphère</span><br>
 
 
  		<input type="range" id="ajout" min="0" max="1" step="1">
 
-		<span class="label">objet non visible/visible</span><span id="ajout_value"></span><br>
+		<span class="label">objet non visible/visible</span>
+		<span id="ajout_value"></span><br>
 
 
-		<input type="range" id="xin" min="-1" max="1" step="0.01">
+		<input type="range" id="x_in" min="-1" max="1" step="0.01">
 
 		<span class="label">position x</span><span id="xin_value"></span><br>
 
    
-		<input type="range" id="yin" min="0" max="0.5" step="0.01">
+		<input type="range" id="y_in" min="0" max="0.5" step="0.01">
 
 		<span class="label">position y</span><span id="yin_value"></span><br>
 
@@ -71,12 +81,38 @@
   		<input type="range" id="height" min="200" max="500" step="1">
 
   		<span class="label">hauteur scene</span><span id="height_value"></span><br>
-
+	</p>
 
   
-
-
 	</div>
+	
+	<div class="container">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 600 600">
+    <defs>
+      <filter id="goo" color-interpolation-filters="sRGB">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7" result="cm" />
+
+      </filter>
+    </defs>
+    <g id="dragGroup">
+      <path id="dragBar" fill="#FFFFFF" d="M447,299.5c0,1.4-1.1,2.5-2.5,2.5h-296c-1.4,0-2.5-1.1-2.5-2.5l0,0c0-1.4,1.1-2.5,2.5-2.5
+		h296C445.9,297,447,298.1,447,299.5L447,299.5z" />
+      <g id="displayGroup">
+        <g id="gooGroup" filter="url(#goo)">
+          <circle id="display" fill="#FFFFFF" cx="146" cy="299.5" r="16" />
+          <circle id="dragger" fill="#FFFFFF"  stroke="#03A9F4" stroke-width="0" cx="146" cy="299.5" r="15" />
+
+        </g>
+        <text class="downText" x="146" y="304">0</text>
+        <text class="upText" x="145" y="266">0</text>
+      </g>
+
+
+    </g>
+  </svg>
+
+</div>
 
 </body>
 </html>
