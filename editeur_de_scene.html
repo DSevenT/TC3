@@ -20,24 +20,41 @@
       <strong>3</strong>sheets
     </p>
 
+	<!--canvas-->
     <div id= "canvas">
 		<img src="pyramid.png">
 	</div>
 	
 	
+	<!--controlbox-->
 	<div id = "controlbox">
+	
+		<button type="button">ajouter un objet</button>
+		<span class="label">ajouter un objet</span><br>
+		<br />
+		
+		<select id="listederoulante">
+			<option value='' selected>Type de l'objet</option> 
+  			<option value='Pyramid'>Pyramide</option> 
+  			<option value='Sphere'>Sphère</option>
+  			<option value='Arbre'>Arbre</option>
+		</select>
+		<span class="label">Type de l'objet</span><br>
+		
+		
+		<select id="listederoulante">
 
+			<option value='' selected>Visibilité de l'objet</option> 
+  			<option value=1>Objet visible </option>
+  			<option value=0>Objet nonvisible</option>
+		</select>
+		<span class="label">Visibilite</span><br>
+		
+		
  		<input type="range" id="nb_obj" min="1" max="8" step="1">
 
-		<span class="label">numéro de l'objet</span> 
-		<span id="nbobj_value">Sphère</span><br>
-
-
- 		<input type="range" id="ajout" min="0" max="1" step="1">
-
-		<span class="label">objet non visible/visible</span>
-		<span id="ajout_value"></span><br>
-
+		<span class="label">numéro de l'objet</span><br> 
+		
 
 		<input type="range" id="x_in" min="-1" max="1" step="0.01">
 
@@ -57,20 +74,6 @@
 		<input type="range" id="heightS" min="0" max="1" step="0.01">
 
 		<span class="label">taille objet</span><span id="heightS_value"></span><br>
-
-		<select id="listederoulante">
-			<option value='' selected>Type de l'objet</option> 
-  			<option value='Pyramid'>Pyramide</option> 
-  			<option value='Sphere'>Sphère</option>
-  			<option value='Arbre'>Arbre</option>
-		</select>
-		<button type="button">ajouter un objet</button>
-		
-
-
-  		<span class="label">ajouter un objet</span><br>
-		<br />
-		<BR>
 
 
   		<input type="range" id="width" min="200" max="600" step="1">
