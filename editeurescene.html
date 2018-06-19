@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> Editeur de scène </title>
+	<link href="freelancer.css" rel="stylesheet" >  <!--type=”text/css”-->
+	<script type="text/jscript"src="editeurscript.js"></script>
+</head>
+
+
+<body>
+
+	<h1>
+		<strong>Editeur de scène</strong><br>
+		Clément Batiste Florain Zihan Jing Diego
+	</h1>
+
+	<p>
+      <strong>1</strong> Choisir
+      <strong>2</strong> Cliquer
+      <strong>3</strong> Afficher
+    </p>
+
+
+	<!--canvas-->
+    <div id= "canvas">
+
+
+		<div id="controlbox">
+			<img id="image2">
+		</div>
+
+		<!--controlbox-->
+		<div id = "controlbox">
+
+
+			<h2>
+			Control Box <br>
+			</h2>
+
+			<div>
+			<select id="listedetype">
+				<option value='' selected>Type de l'objet</option>
+				<option value='Pyramid'>Pyramide</option>
+				<option value='Sphere'>Sphère</option>
+				<option value='Arbre'>Arbre</option>
+			</select>
+			<span class="label">Type de l'objet</span><br>
+			<br>
+			<button  type="button" >ajouter un objet</button>
+			</div>
+
+			<div>
+				<span class="label">symérerie</span><br>
+				<button type="button">horizontal</button>
+				<button type="button">vertical</button>
+			</div>
+
+			<div>
+				<span class="label">tourner 90° autour l'axe</span><br>
+				<button type="button"> X </button>
+				<button type="button"> Y </button>
+				<button type="button"> Z </button>
+			</div>
+			<br>
+
+			<div>
+				<select id="listedecolor">
+					<option value='' selected>Colors</option>
+					<option value=0>Color0 </option>
+					<option value=1>Color1 </option>
+					<option value=2>Color2 </option>
+					<option value=3>Color3 </option>
+					<option value=4>Color4 </option>
+					<option value=5>Color5 </option>
+					<option value=6>Color6 </option>
+					<option value=7>Color7 </option>
+				</select>
+				<span class="label">Colors</span><br>
+
+				<select id="listedevisibilite">
+					<option value=0 selected>Visible</option>
+					<option value=1>Invisible </option>
+				</select>
+				<span class="label">Visibilite</span><br>
+			</div>
+			<br>
+			<div>
+
+				<div id='range'>
+					<input type="range" id="x_in" min="-1" max="1" step="0.01"><br>
+					<span class="label">position x</span><span id="xin_value"></span><br>
+				</div>
+
+				<div id='range'>
+					<input type="range" id="nb_obj" min="1" max="8" step="1"><br>
+					<span class="label">No de l'objet</span><br>
+				</div>
+
+				<div id='range'>
+					<input type="range" id="y_in" min="0" max="0.5" step="0.01"><br>
+					<span class="label">position y</span><span id="yin_value"></span><br>
+				</div>
+
+				<div id='range'>
+					<input type="range" id="heightS" min="0" max="1" step="0.01"><br>
+					<span class="label">taille objet</span><span id="heightS_value"></span><br>
+				</div>
+
+				<div id='range'>
+					<input type="range" id="zin" min="-5" max="5" step="0.01"><br>
+					<span class="label">position z</span><span id="zin_value"></span><br>
+				</div>
+
+				<div id='range2'>
+					<input type="range" id="width" min="200" max="600" step="1"><br>
+					<span class="label">largeur scene</span><span id="width_value"></span><br>
+				</div>
+				<div id='range2'>
+					<input type="range" id="height" min="200" max="500" step="1"><br>
+					<span class="label">hauteur scene</span><span id="height_value"></span><br>
+				</div>
+			</div>
+
+
+		</div>
+	</p>
+	</div>
+
+
+
+</div>
+
+</body>
+</html>
